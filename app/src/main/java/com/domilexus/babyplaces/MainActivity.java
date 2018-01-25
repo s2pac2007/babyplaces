@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -36,15 +37,18 @@ public class MainActivity extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         WebView wv = (WebView)findViewById(R.id.webview);
-       // wv.setWebViewClient(new WebViewClient());
+        wv.setWebContentsDebuggingEnabled(true);
+        wv.setWebViewClient(new WebViewClient());
+        //wv.setWebChromeClient(new WebChromeClient());
         WebSettings settings=wv.getSettings();
         settings.setDisplayZoomControls(true);
         settings.setJavaScriptEnabled(true);
         wv.getSettings().setDomStorageEnabled(true);
-        wv.loadUrl("https://idupesh.com");
+       // wv.loadUrl("https://www.google.com");
+        wv.loadUrl("https://www.idupesh.com");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       // setSupportActionBar(toolbar);
 
 
 
